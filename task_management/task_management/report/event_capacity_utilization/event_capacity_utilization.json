@@ -1,0 +1,29 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2025-06-20 11:15:10.149365",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2025-06-20 11:50:27.229892",
+ "modified_by": "Administrator",
+ "module": "Task Management",
+ "name": "Event Capacity Utilization",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    name AS \"Event ID:Link/Events:150\",\n    event_name AS \"Event Name:Data:200\",\n    event_type AS \"Event Type:Select:120\",\n    capacity AS \"Capacity:Int:100\",\n    registered_participants AS \"Registered Participants:Int:150\",\n    IF(capacity > 0, ROUND((registered_participants / capacity) * 100, 2), 0) AS \"Utilization (%%):Percent:130\",\n    (capacity - registered_participants) AS \"Remaining Seats:Int:140\",\n    status AS \"Status:Select:100\",\n    start_datetime AS \"Start Date:Datetime:150\",\n    end_datetime AS \"End Date:Datetime:150\"\nFROM\n    `tabEvents`\nWHERE\n    docstatus < 2\nORDER BY\n    start_datetime DESC;\n",
+ "ref_doctype": "Events",
+ "report_name": "Event Capacity Utilization",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

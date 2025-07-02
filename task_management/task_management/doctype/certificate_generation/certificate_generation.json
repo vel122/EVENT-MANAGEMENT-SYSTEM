@@ -1,0 +1,74 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-18 12:05:50.317111",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "certificate_generation_section",
+  "participant_name",
+  "events",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fetch_from": "participant_name.events",
+   "fieldname": "events",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Event Name",
+   "options": "Events"
+  },
+  {
+   "fieldname": "participant_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Participant Name",
+   "options": "Participant",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Certificate Generation",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "certificate_generation_section",
+   "fieldtype": "Section Break",
+   "label": "Certificate Generation"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-22 18:41:16.536181",
+ "modified_by": "Administrator",
+ "module": "Task Management",
+ "name": "Certificate Generation",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

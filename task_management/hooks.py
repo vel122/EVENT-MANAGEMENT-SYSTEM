@@ -4,6 +4,69 @@ app_publisher = "JOHN DOE"
 app_description = "EVENT MANAGEMENT SYSTEM"
 app_email = "123@gmail.com"
 app_license = "mit"
+doctype_js = {
+    "Events": "public/js/events.js"
+}
+
+
+
+scheduler_events = {
+    "cron": {
+        "*/5 * * * *": [  # Every 5 minutes
+            "task_management.api.event_status.update_event_statuses"
+        ]
+    }
+}
+
+# For reminders
+scheduler_events = {
+    "daily": [
+        "task_management.task_management.notifications.send_event_reminders"
+    ]
+}
+
+
+
+doc_events = {
+    "Participant": {
+        "after_insert": "task_management.task_management.notifications.send_registration_confirmation"
+    }
+}
+
+scheduler_events = {
+    "all": [
+        "task_management.api.certificate.generate_certificates_for_ended_events"
+    ]
+}
+
+
+
+scheduler_events = {
+    "daily": [
+        "task_management.task_management.notifications.send_event_reminders",
+        "task_management.task_management.certificate.generate_certificates_for_ended_events"
+    ]
+}
+
+
+scheduler_events = {
+    "cron": {
+        "*/5 * * * *": [
+            "task_management.api.certificate.generate_certificates_for_ended_events"
+        ]
+    }
+}
+
+scheduler_events = {
+    "daily": [
+        "task_management.api.certificate.generate_certificates_for_ended_events"
+    ]
+}
+
+
+
+
+
 
 # Apps
 # ------------------

@@ -1,0 +1,77 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-06-17 17:52:56.012353",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "participant",
+  "event",
+  "email",
+  "certificate_url",
+  "date_issued"
+ ],
+ "fields": [
+  {
+   "fieldname": "participant",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Participant",
+   "options": "Participant",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "participant.events",
+   "fieldname": "event",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Event",
+   "options": "Events",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "participant.email",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "read_only": 1
+  },
+  {
+   "fieldname": "certificate_url",
+   "fieldtype": "Data",
+   "label": "Certificate URL",
+   "read_only": 1
+  },
+  {
+   "fieldname": "date_issued",
+   "fieldtype": "Date",
+   "label": "Date Issued"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-18 10:52:52.763302",
+ "modified_by": "Administrator",
+ "module": "Task Management",
+ "name": "Event Certificate",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
