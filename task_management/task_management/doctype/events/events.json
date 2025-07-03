@@ -4,18 +4,24 @@
  "autoname": "field:event_name",
  "creation": "2025-06-17 17:42:49.320177",
  "doctype": "DocType",
+ "has_list_view": 1,
+ "list_view_filter": "task_management.task_management.doctype.events.events_list.get_list",
+
  "engine": "InnoDB",
+ "permission_query_conditions": "task_management.task_management.doctype.events.events.get_permission_query_conditions",
  "field_order": [
   "event_details_section",
   "event_name",
-  "event_type",
   "event_location",
   "capacity",
   "start_datetime",
   "end_datetime",
   "description",
+  "current_status",
   "registered_participants",
-  "status"
+  "parent_event",
+  "s_sub_event",
+  "sub_events_list_html"
  ],
  "fields": [
   {
@@ -23,12 +29,6 @@
    "fieldtype": "Data",
    "label": "Event Name",
    "unique": 1
-  },
-  {
-   "fieldname": "event_type",
-   "fieldtype": "Select",
-   "label": "Event Type",
-   "options": "Conference\nWebinar\nWorkshops"
   },
   {
    "fieldname": "event_location",
@@ -62,25 +62,39 @@
    "label": "End DateTime"
   },
   {
+   "fieldname": "current_status",
+   "fieldtype": "Read Only",
+   "in_list_view": 1,
+   "label": "Current Status"
+  },
+  {
    "fieldname": "registered_participants",
    "fieldtype": "Int",
-   "hidden": 1,
-   "in_list_view": 1,
    "label": "Registered Participants",
    "read_only": 1
   },
   {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "in_list_view": 1,
-   "label": "Status",
-   "options": "Draft\nOpen\nFull"
+   "fieldname": "parent_event",
+   "fieldtype": "Link",
+   "label": "Parent Event",
+   "options": "Events"
+  },
+  {
+   "default": "0",
+   "fieldname": "s_sub_event",
+   "fieldtype": "Check",
+   "label": "Is Sub Event"
+  },
+  {
+   "fieldname": "sub_events_list_html",
+   "fieldtype": "HTML",
+   "label": "Sub Events List"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-20 11:29:21.769859",
+ "modified": "2025-07-03 16:29:24.138276",
  "modified_by": "Administrator",
  "module": "Task Management",
  "name": "Events",
@@ -105,3 +119,4 @@
  "sort_order": "DESC",
  "states": []
 }
+

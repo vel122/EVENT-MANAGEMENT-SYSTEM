@@ -7,8 +7,9 @@
  "engine": "InnoDB",
  "field_order": [
   "full_name",
-  "events",
   "email",
+  "events",
+  "date_of_the_event",
   "status",
   "certificate_issued"
  ],
@@ -53,12 +54,19 @@
    "in_preview": 1,
    "label": "Certificate Issued",
    "read_only": 1
+  },
+  {
+   "fetch_from": "events.start_datetime",
+   "fieldname": "date_of_the_event",
+   "fieldtype": "Link",
+   "label": "Date of the Event",
+   "options": "Events"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-06-26 13:17:02.208598",
+ "modified": "2025-07-03 15:51:38.861307",
  "modified_by": "Administrator",
  "module": "Task Management",
  "name": "Participant",

@@ -35,9 +35,13 @@ class Events(Document):
             status = "Open"
 
         self.status = status
-        self.custom_current_status = status  # <- this matches your fieldname
+        self.current_status = status
 
-        # Save value directly to DB to reflect in list view
+        # Save to DB (so it updates List View)
         if self.get("name"):
-            frappe.db.set_value("Events", self.name, "custom_current_status", status)
+            frappe.db.set_value("Events", self.name, "current_status", status)
+
+# ✅ Place this **outside** the class
+def get_permission_query_conditions(user):
+    return "`tabEvents`.`s_sub_event` = 0"
 
